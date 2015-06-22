@@ -1,0 +1,38 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.2.3'
+        classpath 'org.robolectric:robolectric-gradle-plugin:1.0.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven {
+            name "rosjava-github"
+            url "https://github.com/rosjava/rosjava_mvn_repo/raw/master"
+        }
+        maven {
+            name "myosdk"
+            url 'libs/myorepository'
+        }
+        maven {
+            url 'https://raw.githubusercontent.com/ipab-rad/rad_utils/master'
+        }
+        maven {
+            url 'https://raw.githubusercontent.com/ipab-rad/rosjava_wrapper/master'
+            artifactUrls "https://github.com/ipab-rad/rosjava_wrapper/blob/master"
+            artifactUrls "https://github.com/ipab-rad/rosjava_wrapper/tree/master"
+            artifactUrls "https://github.com/ipab-rad/rosjava_wrapper/raw/master"
+        }
+    }
+}
