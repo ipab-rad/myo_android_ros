@@ -22,8 +22,7 @@ allprojects {
             url "https://github.com/rosjava/rosjava_mvn_repo/raw/master"
         }
         maven {
-            name "myosdk"
-            url 'libs/myorepository'
+            url 'https://raw.githubusercontent.com/ipab-rad/myo_android_ros/master/releases'
         }
         maven {
             url 'https://raw.githubusercontent.com/ipab-rad/rad_utils/master'

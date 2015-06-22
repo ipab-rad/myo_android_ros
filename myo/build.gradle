@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion 22
@@ -51,6 +52,25 @@ dependencies {
     testCompile 'junit:junit:4.12'
     testCompile 'org.assertj:assertj-core:2.0.0'
     testCompile 'pl.pragmatists:JUnitParams:1.0.3'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'com.rad'
+            artifactId = 'myo'
+            version = '0.1-alpha'
+            from components.java
+        }
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            url 'https://raw.githubusercontent.com/ipab-rad/myo_ros_android/master/releases'
+        }
+    }
 }
 
 task wrapper(type: Wrapper) {
