@@ -29,7 +29,7 @@ public class MyoPublisherNode extends AbstractNodeMain implements PublisherNode 
 
     @Override
     public GraphName getDefaultNodeName() {
-        return GraphName.of("MyoPublisherNode");
+        return GraphName.of("MyoPublisherNode_" + myoData.getMyoId());
     }
 
     @Override
