@@ -12,6 +12,7 @@ public class MyoData {
     private boolean enabled;
     private boolean calibrated;
     private String gesture;
+    private boolean vibrate = false;
 
     public MyoData(){
         gyroData = new GyroData();

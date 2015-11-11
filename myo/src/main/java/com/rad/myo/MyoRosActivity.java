@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.rad.myo.data.MyoData;
 import com.rad.myo.myolistener.DefaultMyoListener;
 import com.rad.myo.publish.MyoPublisherNode;
+import com.rad.myo.publish.MyoSubscriberNode;
 import com.thalmic.myo.DeviceListener;
 import com.thalmic.myo.Hub;
 import com.thalmic.myo.scanner.ScanActivity;
@@ -29,6 +30,7 @@ public abstract class MyoRosActivity extends RosActivity {
 
     private MyoData myoData;
     private MyoPublisherNode myoPublisherNode;
+    private MyoSubscriberNode myoSubscriberNode;
     private DeviceListener myoListener;
 
     public MyoRosActivity(String activityIdentifier) {
@@ -37,6 +39,7 @@ public abstract class MyoRosActivity extends RosActivity {
         //super(activityIdentifier, activityIdentifier, URI.create("http://localhost:11311"));
         myoData = new MyoData();
         myoPublisherNode = new MyoPublisherNode(myoData);
+        myoSubscriberNode = new MyoSubscriberNode(myoData);
         myoListener = new DefaultMyoListener(this);
     }
 
@@ -133,6 +136,7 @@ public abstract class MyoRosActivity extends RosActivity {
     @Override
     protected void init(NodeMainExecutor nodeMainExecutor) {
         initNode(nodeMainExecutor, myoPublisherNode);
+        initNode(nodeMainExecutor, myoSubscriberNode);
     }
 
     public void initNode(NodeMainExecutor nodeMainExecutor, NodeMain node) {
